@@ -65,6 +65,7 @@ public:
         tableProgrammers = new QTableWidget(tabProgrammers);
         tableProgrammers->setObjectName(QStringLiteral("tableProgrammers"));
         tableProgrammers->setGeometry(QRect(10, 60, 541, 481));
+        tableProgrammers->setSortingEnabled(true);
         buttonProgrammerAdd = new QPushButton(tabProgrammers);
         buttonProgrammerAdd->setObjectName(QStringLiteral("buttonProgrammerAdd"));
         buttonProgrammerAdd->setGeometry(QRect(20, 10, 75, 23));
@@ -77,6 +78,7 @@ public:
         tableComputers = new QTableWidget(tabComputers);
         tableComputers->setObjectName(QStringLiteral("tableComputers"));
         tableComputers->setGeometry(QRect(20, 10, 501, 471));
+        tableComputers->setSortingEnabled(true);
         tabs->addTab(tabComputers, QString());
         tabConnections = new QWidget();
         tabConnections->setObjectName(QStringLiteral("tabConnections"));
@@ -95,7 +97,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(0);
+        tabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
