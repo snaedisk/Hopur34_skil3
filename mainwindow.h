@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QtPlugin>
+
 #include "pcservice.h"
+#include<addprogrammer.h>
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +38,8 @@ private slots:
     void on_buttonProgrammerEdit_clicked();
 
     void on_connectionAdd_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;

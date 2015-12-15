@@ -4,8 +4,23 @@
 #include "programmer.h"
 #include "computer.h"
 #include "utilities/utils.h"
+
 #include "data.h"
 #include "programmerform.h"
+
+#include "addprogrammer.h"
+
+#include <QApplication>
+#include <QMessageBox>
+#include <QPixmap>
+#include <QFileDialog>
+#include <string>
+#include <QMenu>
+#include <QtCore>
+#include <QtGui>
+#include <QDebug>
+#include<QtPlugin>
+
 
 using namespace std;
 using namespace utils;
@@ -154,7 +169,6 @@ void MainWindow::on_buttonProgrammerDel_clicked()
     ui->tableProgrammers->removeRow(r);
 }
 
-
 void MainWindow::on_buttonComputersDel_clicked()
 {
     int s = ui->tableComputers->currentRow();
@@ -234,3 +248,10 @@ void MainWindow::on_connectionAdd_clicked()
         displayConnections(ui->eFind->text().toStdString());
     }
 }
+
+/*void MainWindow::on_buttonProgrammerAdd_clicked()
+{
+    addProgrammer addp;
+    addp.exec();
+
+}*/
