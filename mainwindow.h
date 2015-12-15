@@ -43,6 +43,8 @@ private slots:
 
     void on_buttonComputersAdd_clicked();
 
+    void on_buttonComputersEdit_clicked();
+
 private:
     Ui::MainWindow *ui;
     pcService pcservice;

@@ -43,6 +43,7 @@ public:
     QTableWidget *tableComputers;
     QPushButton *buttonComputersAdd;
     QPushButton *buttonComputersDel;
+    QPushButton *buttonComputersEdit;
     QWidget *tabConnections;
     QTableWidget *tableConnections;
     QPushButton *buttonConnectionsDel;
@@ -96,7 +97,10 @@ public:
         buttonComputersAdd->setGeometry(QRect(30, 10, 93, 28));
         buttonComputersDel = new QPushButton(tabComputers);
         buttonComputersDel->setObjectName(QStringLiteral("buttonComputersDel"));
-        buttonComputersDel->setGeometry(QRect(150, 10, 93, 28));
+        buttonComputersDel->setGeometry(QRect(250, 10, 93, 28));
+        buttonComputersEdit = new QPushButton(tabComputers);
+        buttonComputersEdit->setObjectName(QStringLiteral("buttonComputersEdit"));
+        buttonComputersEdit->setGeometry(QRect(140, 10, 93, 28));
         tabs->addTab(tabComputers, QString());
         tabConnections = new QWidget();
         tabConnections->setObjectName(QStringLiteral("tabConnections"));
@@ -148,6 +152,7 @@ public:
         tabs->setTabText(tabs->indexOf(tabProgrammers), QApplication::translate("MainWindow", "Programmers", 0));
         buttonComputersAdd->setText(QApplication::translate("MainWindow", "Add", 0));
         buttonComputersDel->setText(QApplication::translate("MainWindow", "Delete", 0));
+        buttonComputersEdit->setText(QApplication::translate("MainWindow", "Edit", 0));
         tabs->setTabText(tabs->indexOf(tabComputers), QApplication::translate("MainWindow", "Computers", 0));
         buttonConnectionsDel->setText(QApplication::translate("MainWindow", "Delete", 0));
         connectionAdd->setText(QApplication::translate("MainWindow", "Add", 0));

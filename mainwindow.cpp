@@ -226,13 +226,6 @@ void MainWindow::on_connectionAdd_clicked()
     }
 }
 
-/*void MainWindow::on_buttonProgrammerAdd_clicked()
-{
-    addProgrammer addp;
-    addp.exec();
-
-}*/
-
 void MainWindow::on_buttonComputersAdd_clicked()
 {
 
@@ -250,6 +243,37 @@ void MainWindow::on_buttonComputersAdd_clicked()
     c.YearBuilt = cf.getYearBuilt();
     pcservice.addComputer(c);
     displayComputers(ui->eFind->text().toStdString());
-
 }
 
+
+void MainWindow::on_buttonComputersEdit_clicked()
+{
+    int r = ui->tableComputers->currentRow();
+    if(r<0){
+        return;  // if no programmer is selected
+    }
+
+    computerForm cf(this);
+    cf.setName(ui->tableComputers->item(r, 1)->text().toStdString());
+    cf.setType(ui->tableComputers->item(r, 2)->text().toStdString());
+    cf.setWasItBuilt(ui->tableComputers->item(r, 3)->text().toStdString());
+    cf.setYearBuilt(ui->tableComputers->item(r, 4)->text().toInt());
+
+    int res;
+    cf.setWindowTitle(QString::fromStdString(string("Edit Computer ") + ui->tableComputers->item(r, 0)->text().toStdString()));
+    res = cf.exec();
+    if (res == QDialog::Rejected){
+        return;
+    }
+
+    Computer c;
+    c.computerID = ui->tableComputers->item(r, 0)->text().toInt();
+    c.Name = cf.getName();
+    c.Type = cf.getType();
+    c.WasItBuilt = yesNoToInt(cf.getWasItBuilt());
+    c.YearBuilt = cf.getYearBuilt();
+
+    pcservice.updateComputer(c);
+
+    displayComputers(ui->eFind->text().toStdString());
+}
