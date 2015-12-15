@@ -131,7 +131,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(2);
+        tabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -140,6 +140,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        eFind->setPlaceholderText(QApplication::translate("MainWindow", "search...", 0));
         pushButton->setText(QApplication::translate("MainWindow", "Display", 0));
         buttonProgrammerAdd->setText(QApplication::translate("MainWindow", "Add", 0));
         buttonProgrammerDel->setText(QApplication::translate("MainWindow", "Delete", 0));

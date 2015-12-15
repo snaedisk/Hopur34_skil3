@@ -7,8 +7,8 @@
 
 #include "data.h"
 #include "programmerform.h"
+#include "computerform.h"
 
-#include "addprogrammer.h"
 
 #include <QApplication>
 #include <QMessageBox>
@@ -232,3 +232,24 @@ void MainWindow::on_connectionAdd_clicked()
     addp.exec();
 
 }*/
+
+void MainWindow::on_buttonComputersAdd_clicked()
+{
+
+    int res;
+    computerForm cf(this);
+    cf.setWindowTitle(QString::fromStdString("Add Computer"));
+    res = cf.exec();
+    if (res == QDialog::Rejected){
+        return;
+    }
+    Computer c;
+    c.Name = cf.getName();
+    c.Type = cf.getType();
+    c.WasItBuilt = yesNoToInt(cf.getWasItBuilt());
+    c.YearBuilt = cf.getYearBuilt();
+    pcservice.addComputer(c);
+    displayComputers(ui->eFind->text().toStdString());
+
+}
+

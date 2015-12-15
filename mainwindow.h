@@ -41,6 +41,8 @@ private slots:
 
 
 
+    void on_buttonComputersAdd_clicked();
+
 private:
     Ui::MainWindow *ui;
     pcService pcservice;

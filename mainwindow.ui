@@ -23,6 +23,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="placeholderText">
+     <string>search...</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
@@ -47,7 +50,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabProgrammers">
      <attribute name="title">

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -29,33 +32,20 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QSpinBox" name="pBirthYear">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>100</y>
-     <width>71</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="maximum">
-    <number>2100</number>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>130</y>
-     <width>81</width>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Year of death :</string>
+    <string>Year built :</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="pDeadYear">
+  <widget class="QSpinBox" name="cYearBuilt">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -64,8 +54,11 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="minimum">
+    <number>1000</number>
+   </property>
    <property name="maximum">
-    <number>2100</number>
+    <number>2016</number>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -104,11 +97,11 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="pGender">
+  <widget class="QComboBox" name="cWasItBuilt">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>70</y>
+     <y>100</y>
      <width>131</width>
      <height>22</height>
     </rect>
@@ -124,7 +117,17 @@
     </rect>
    </property>
    <property name="text">
-    <string>Birth year :</string>
+    <string>Was it built :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="cType">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>70</y>
+     <width>241</width>
+     <height>22</height>
+    </rect>
    </property>
   </widget>
  </widget>
