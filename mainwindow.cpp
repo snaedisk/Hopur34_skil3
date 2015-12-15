@@ -137,30 +137,7 @@ void MainWindow::displayConnections(string search)
     }
 }
 
-/*
-void MainWindow::displayConnections(string search)
-{
-    ui->tableConnections->setRowCount(0);
 
-    vector<Programmer> programmers;
-    vector<Computer> computers = pcservice.findComputers(search);
-    for (unsigned int i = 0; i<computers.size();  i++) {
-        programmers = pcservice.getProgrammers(computers[i].computerID);
-
-        for (unsigned int c = 0; c < programmers.size();  c++) {
-
-         ui->tableConnections->insertRow(ui->tableConnections->rowCount());
-         ui->tableConnections->setItem(ui->tableConnections->rowCount() - 1, 0, new QTableWidgetItem(intToString(programmers[i].programmerID).c_str()));
-         //ui->tableConnections->setItem(ui->tableConnections->rowCount() - 1, 1, new QTableWidgetItem(programmers[i].Name.c_str()));
-         //ui->tableConnections->setItem(ui->tableConnections->rowCount() - 1, 2, new QTableWidgetItem(intToString(computers[i].computerID).c_str()));
-         //ui->tableConnections->setItem(ui->tableConnections->rowCount() - 1, 3, new QTableWidgetItem(computers[i].Name.c_str()));
-
-
-        }
-
-    }
-}
-*/
 
 void MainWindow::on_buttonProgrammerDel_clicked()
 {

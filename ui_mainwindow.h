@@ -90,6 +90,7 @@ public:
         tableComputers = new QTableWidget(tabComputers);
         tableComputers->setObjectName(QStringLiteral("tableComputers"));
         tableComputers->setGeometry(QRect(20, 50, 521, 441));
+        tableComputers->setSortingEnabled(true);
         buttonComputersAdd = new QPushButton(tabComputers);
         buttonComputersAdd->setObjectName(QStringLiteral("buttonComputersAdd"));
         buttonComputersAdd->setGeometry(QRect(30, 10, 93, 28));
@@ -102,6 +103,7 @@ public:
         tableConnections = new QTableWidget(tabConnections);
         tableConnections->setObjectName(QStringLiteral("tableConnections"));
         tableConnections->setGeometry(QRect(10, 40, 531, 371));
+        tableConnections->setSortingEnabled(true);
         buttonConnectionsDel = new QPushButton(tabConnections);
         buttonConnectionsDel->setObjectName(QStringLiteral("buttonConnectionsDel"));
         buttonConnectionsDel->setGeometry(QRect(20, 10, 75, 23));
@@ -118,7 +120,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 590, 21));
+        menuBar->setGeometry(QRect(0, 0, 590, 26));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -129,7 +131,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(1);
+        tabs->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
