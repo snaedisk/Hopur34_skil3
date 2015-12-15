@@ -28,6 +28,9 @@ public:
 
 
 
+private slots:
+    void on_cWasItBuilt_currentIndexChanged(int index);
+
 private:
     Ui::computerForm *ui;
 };

@@ -25,6 +25,16 @@ public:
     void setDeadYear(int DeadYear);
     int getDearYear();
 
+private slots:
+
+    void on_buttonCancel_clicked();
+
+    void on_buttonOK_clicked();
+
+    void on_pDeadYear_valueChanged(int arg1);
+
+    void on_pBirthYear_valueChanged(int arg1);
+
 private:
     Ui::programmerForm *ui;
 };

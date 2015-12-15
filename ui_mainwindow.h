@@ -33,7 +33,6 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QLineEdit *eFind;
-    QPushButton *pushButton;
     QTabWidget *tabs;
     QWidget *tabProgrammers;
     QTableWidget *tableProgrammers;
@@ -66,18 +65,17 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         eFind = new QLineEdit(centralWidget);
         eFind->setObjectName(QStringLiteral("eFind"));
-        eFind->setGeometry(QRect(100, 10, 133, 20));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 75, 23));
+        eFind->setGeometry(QRect(10, 10, 401, 20));
         tabs = new QTabWidget(centralWidget);
         tabs->setObjectName(QStringLiteral("tabs"));
-        tabs->setGeometry(QRect(0, 40, 571, 531));
+        tabs->setGeometry(QRect(10, 40, 571, 571));
         tabProgrammers = new QWidget();
         tabProgrammers->setObjectName(QStringLiteral("tabProgrammers"));
         tableProgrammers = new QTableWidget(tabProgrammers);
         tableProgrammers->setObjectName(QStringLiteral("tableProgrammers"));
-        tableProgrammers->setGeometry(QRect(10, 50, 541, 441));
+        tableProgrammers->setGeometry(QRect(10, 50, 561, 491));
+        tableProgrammers->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableProgrammers->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableProgrammers->setSortingEnabled(true);
         buttonProgrammerAdd = new QPushButton(tabProgrammers);
         buttonProgrammerAdd->setObjectName(QStringLiteral("buttonProgrammerAdd"));
@@ -93,7 +91,9 @@ public:
         tabComputers->setObjectName(QStringLiteral("tabComputers"));
         tableComputers = new QTableWidget(tabComputers);
         tableComputers->setObjectName(QStringLiteral("tableComputers"));
-        tableComputers->setGeometry(QRect(20, 50, 521, 441));
+        tableComputers->setGeometry(QRect(10, 50, 551, 491));
+        tableComputers->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableComputers->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableComputers->setSortingEnabled(true);
         buttonComputersAdd = new QPushButton(tabComputers);
         buttonComputersAdd->setObjectName(QStringLiteral("buttonComputersAdd"));
@@ -109,7 +109,9 @@ public:
         tabConnections->setObjectName(QStringLiteral("tabConnections"));
         tableConnections = new QTableWidget(tabConnections);
         tableConnections->setObjectName(QStringLiteral("tableConnections"));
-        tableConnections->setGeometry(QRect(10, 70, 531, 371));
+        tableConnections->setGeometry(QRect(10, 60, 551, 481));
+        tableConnections->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableConnections->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableConnections->setSortingEnabled(true);
         buttonConnectionsDel = new QPushButton(tabConnections);
         buttonConnectionsDel->setObjectName(QStringLiteral("buttonConnectionsDel"));
@@ -133,7 +135,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 590, 26));
+        menuBar->setGeometry(QRect(0, 0, 590, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -144,7 +146,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(2);
+        tabs->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -152,9 +154,8 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Programmers and Computers", 0));
         eFind->setPlaceholderText(QApplication::translate("MainWindow", "search...", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Display", 0));
         buttonProgrammerAdd->setText(QApplication::translate("MainWindow", "Add", 0));
         buttonProgrammerDel->setText(QApplication::translate("MainWindow", "Delete", 0));
         buttonProgrammerEdit->setText(QApplication::translate("MainWindow", "Edit", 0));

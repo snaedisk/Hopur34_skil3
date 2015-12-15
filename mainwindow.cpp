@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     QStringList l;
     ui->tableProgrammers->setColumnCount(5);
     l << "ID" << "Name" << "Gender" << "Birth" << "Dead";
@@ -71,20 +72,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
-    if(ui->tabs->currentIndex()== 0){
-        displayProgrammers(ui->eFind->text().toStdString());
-    }
-    else if(ui->tabs->currentIndex()== 1){
-        displayComputers(ui->eFind->text().toStdString());
-    }
-    else if(ui->tabs->currentIndex()== 2){
-        displayConnections(ui->eFind->text().toStdString());
-    }
-                   // TODO mögulega taka út if setningar og leita í báðum í einu....- KSV
-}
 
 void MainWindow::displayProgrammers(string search)
 {

@@ -20,7 +20,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
     void displayProgrammers(string search);
     void displayComputers(string search);
     void displayConnections(string search);

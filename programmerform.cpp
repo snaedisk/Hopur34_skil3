@@ -11,6 +11,7 @@ programmerForm::programmerForm(QWidget *parent) :
     ui->setupUi(this);
     ui->pGender->addItem(QString::fromStdString("Male"));
     ui->pGender->addItem(QString::fromStdString("Female"));
+    ui->errorLabel->setVisible(false);
 }
 
 programmerForm::~programmerForm()
@@ -52,4 +53,28 @@ void programmerForm::setDeadYear(int DeadYear){
 
 int programmerForm::getDearYear(){
     return ui->pDeadYear->value();
+}
+
+
+void programmerForm::on_buttonCancel_clicked()
+{
+    QDialog::reject();
+}
+
+void programmerForm::on_buttonOK_clicked()
+{
+    if (ui->pBirthYear->value() < ui->pDeadYear->value() || ui->pDeadYear->value() == 0)
+        QDialog::accept();
+
+}
+
+void programmerForm::on_pDeadYear_valueChanged(int arg1)
+{
+    ui->errorLabel->setVisible(ui->pBirthYear->value() >= ui->pDeadYear->value() && ui->pDeadYear->value() > 0);
+}
+
+void programmerForm::on_pBirthYear_valueChanged(int arg1)
+{
+    ui->errorLabel->setVisible(ui->pBirthYear->value() >= ui->pDeadYear->value() && ui->pDeadYear->value() > 0);
+
 }

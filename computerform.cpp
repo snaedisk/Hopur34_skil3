@@ -55,32 +55,7 @@ int computerForm::getYearBuilt(){
     return ui->cYearBuilt->value();
 }
 
-/*
-void computerForm::setGender(string Gender){
-    if(stringToLower(Gender.substr(0, 1))== "f"){
-        ui->pGender->setCurrentIndex(1);
-    }else{
-        ui->pGender->setCurrentIndex(0);
-    }
+void computerForm::on_cWasItBuilt_currentIndexChanged(int index)
+{
+        ui->cYearBuilt->setEnabled(index == 1);
 }
-
-string computerForm::getGender(){
-    return ui->pGender->currentText().toStdString();
-}
-
-void computerForm::setBirthYear(int BirthYear){
-    ui->pBirthYear->setValue(BirthYear);
-
-}
-int computerForm::getBirthYear(){
-    return ui->pBirthYear->value();
-}
-
-void computerForm::setDeadYear(int DeadYear){
-    ui->pDeadYear->setValue(DeadYear);
-}
-
-int computerForm::getDearYear(){
-    return ui->pDeadYear->value();
-}
-*/
