@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QtPlugin>
+
 #include "pcservice.h"
+#include<addprogrammer.h>
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +25,9 @@ private slots:
     void displayComputers(string search);
 
     void on_buttonProgrammerDel_clicked();
+
+
+    void on_buttonProgrammerAdd_clicked();
 
 private:
     Ui::MainWindow *ui;
