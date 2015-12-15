@@ -43,8 +43,8 @@
    <widget class="QTabWidget" name="tabs">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
+      <x>0</x>
+      <y>40</y>
       <width>571</width>
       <height>531</height>
      </rect>
@@ -196,7 +196,7 @@
        <string>Delete</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="connProgrammerID">
+     <widget class="QSpinBox" name="connProgrammer">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -206,7 +206,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QSpinBox" name="connComputerID">
+     <widget class="QSpinBox" name="connComputer">
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -264,7 +264,7 @@
      <x>0</x>
      <y>0</y>
      <width>590</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

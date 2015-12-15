@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     data.cpp \
     pcservice.cpp \
     programmerform.cpp \
-    computerform.cpp
+    computerform.cpp \
+    connectionform.cpp
 
 HEADERS  += mainwindow.h \
     utilities/constants.h \
@@ -29,8 +30,10 @@ HEADERS  += mainwindow.h \
     pcservice.h \
     Programmer.h \
     programmerform.h \
-    computerform.h
+    computerform.h \
+    connectionform.h
 
 FORMS    += mainwindow.ui \
     programmerform.ui \
-    computerform.ui
+    computerform.ui \
+    connectionform.ui
