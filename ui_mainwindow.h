@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -47,9 +48,11 @@ public:
     QWidget *tabConnections;
     QTableWidget *tableConnections;
     QPushButton *buttonConnectionsDel;
-    QSpinBox *connProgrammerID;
-    QSpinBox *connComputerID;
+    QSpinBox *connProgrammer;
+    QSpinBox *connComputer;
     QPushButton *connectionAdd;
+    QLabel *label;
+    QLabel *label_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -69,7 +72,7 @@ public:
         pushButton->setGeometry(QRect(10, 10, 75, 23));
         tabs = new QTabWidget(centralWidget);
         tabs->setObjectName(QStringLiteral("tabs"));
-        tabs->setGeometry(QRect(10, 60, 571, 531));
+        tabs->setGeometry(QRect(0, 40, 571, 531));
         tabProgrammers = new QWidget();
         tabProgrammers->setObjectName(QStringLiteral("tabProgrammers"));
         tableProgrammers = new QTableWidget(tabProgrammers);
@@ -106,20 +109,26 @@ public:
         tabConnections->setObjectName(QStringLiteral("tabConnections"));
         tableConnections = new QTableWidget(tabConnections);
         tableConnections->setObjectName(QStringLiteral("tableConnections"));
-        tableConnections->setGeometry(QRect(10, 40, 531, 371));
+        tableConnections->setGeometry(QRect(10, 70, 531, 371));
         tableConnections->setSortingEnabled(true);
         buttonConnectionsDel = new QPushButton(tabConnections);
         buttonConnectionsDel->setObjectName(QStringLiteral("buttonConnectionsDel"));
-        buttonConnectionsDel->setGeometry(QRect(20, 10, 75, 23));
-        connProgrammerID = new QSpinBox(tabConnections);
-        connProgrammerID->setObjectName(QStringLiteral("connProgrammerID"));
-        connProgrammerID->setGeometry(QRect(260, 10, 81, 22));
-        connComputerID = new QSpinBox(tabConnections);
-        connComputerID->setObjectName(QStringLiteral("connComputerID"));
-        connComputerID->setGeometry(QRect(350, 10, 81, 22));
+        buttonConnectionsDel->setGeometry(QRect(10, 30, 75, 23));
+        connProgrammer = new QSpinBox(tabConnections);
+        connProgrammer->setObjectName(QStringLiteral("connProgrammer"));
+        connProgrammer->setGeometry(QRect(250, 30, 81, 22));
+        connComputer = new QSpinBox(tabConnections);
+        connComputer->setObjectName(QStringLiteral("connComputer"));
+        connComputer->setGeometry(QRect(340, 30, 81, 22));
         connectionAdd = new QPushButton(tabConnections);
         connectionAdd->setObjectName(QStringLiteral("connectionAdd"));
-        connectionAdd->setGeometry(QRect(180, 10, 75, 23));
+        connectionAdd->setGeometry(QRect(170, 30, 75, 23));
+        label = new QLabel(tabConnections);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(250, 10, 81, 16));
+        label_2 = new QLabel(tabConnections);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(340, 10, 71, 16));
         tabs->addTab(tabConnections, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -135,7 +144,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(1);
+        tabs->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -156,6 +165,8 @@ public:
         tabs->setTabText(tabs->indexOf(tabComputers), QApplication::translate("MainWindow", "Computers", 0));
         buttonConnectionsDel->setText(QApplication::translate("MainWindow", "Delete", 0));
         connectionAdd->setText(QApplication::translate("MainWindow", "Add", 0));
+        label->setText(QApplication::translate("MainWindow", "Programmer ID", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Computers ID", 0));
         tabs->setTabText(tabs->indexOf(tabConnections), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi
 

@@ -4,7 +4,6 @@
 #include "programmer.h"
 #include "computer.h"
 #include "utilities/utils.h"
-#include "connectionform.h"
 
 #include "data.h"
 #include "programmerform.h"
@@ -221,25 +220,8 @@ void MainWindow::on_buttonProgrammerEdit_clicked()
 
 void MainWindow::on_connectionAdd_clicked()
 {
-    Programmer p;
-    Computer c;
-    int res;
-    connectionForm connf(this);
-    connf.setWindowTitle(QString::fromStdString("Add Connection"));
-    res = connf.exec();
-    if (res == QDialog::Rejected){
-        return;
-    }
-  /*  p.programmerID = connf.getProgrammerID();
-    c.computerID = connf.getComputerID();
-    if(connf.getProgrammerID()>0 && connf.getComputerID()>0){
-
-        pcservice.connectProgrammerToComputer( connf.getProgrammerID(), connf.getComputerID());
-
-        displayConnections(ui->eFind->text().toStdString());
-    }*/
-     if(connf.getProgrammerID>0 && connf.getComputerID>0){
-        pcservice.connectProgrammerToComputer(connf.getComputerID->value(), connf.getProgrammerID->value());
+     if(ui->connProgrammer->value()>0 && ui->connComputer->value()>0){
+        pcservice.connectProgrammerToComputer(ui->connComputer->value(), ui->connProgrammer->value());
         displayConnections(ui->eFind->text().toStdString());
     }
 }
