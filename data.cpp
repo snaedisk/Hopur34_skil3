@@ -41,6 +41,12 @@ void Data::closeDB() {
 
 }
 
+void Data::disconnect(int programmerID, int computerID){
+    QSqlQuery query;
+    string sql = string("DELETE FROM PCConnection WHERE ProgrammerID=") +intToString(programmerID)+ string(" and computerID =") +intToString(computerID);
+    query.exec(sql.c_str());
+}
+
 
 // ********* PROGRAMMERS *************************************************************************
 

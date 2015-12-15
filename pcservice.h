@@ -13,6 +13,8 @@ class pcService
     public:
         pcService();
 
+        void disconnect(int programmerID, int computerID);
+
 // ********* PROGRAMMERS *************************************************************************
 
             // input : programmerId - id of the programmer

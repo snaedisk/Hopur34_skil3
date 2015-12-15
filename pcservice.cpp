@@ -11,6 +11,10 @@ pcService::pcService() {
 
 }
 
+void pcService::disconnect(int programmerID, int computerID){
+    data.disconnect(programmerID, computerID);
+}
+
 // ********* PROGRAMMERS *************************************************************************
 
 

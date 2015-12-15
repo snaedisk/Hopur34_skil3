@@ -17,6 +17,8 @@ class Data
 
         void openDB();
         void closeDB();
+
+        void disconnect(int programmerID, int computerID);
 // ********* PROGRAMMERS *************************************************************************
 
            // input : programmerId - id of the programmer
