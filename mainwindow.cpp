@@ -84,7 +84,6 @@ void MainWindow::on_pushButton_clicked()
         displayConnections(ui->eFind->text().toStdString());
     }
                    // TODO mögulega taka út if setningar og leita í báðum í einu....- KSV
-
 }
 
 void MainWindow::displayProgrammers(string search)
