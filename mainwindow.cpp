@@ -4,12 +4,9 @@
 #include "programmer.h"
 #include "computer.h"
 #include "utilities/utils.h"
-
 #include "data.h"
 #include "programmerform.h"
 #include "computerform.h"
-
-
 #include <QApplication>
 #include <QMessageBox>
 #include <QPixmap>
@@ -36,11 +33,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableProgrammers->setColumnCount(5);
     l << "ID" << "Name" << "Gender" << "Birth" << "Dead";
     ui->tableProgrammers->setHorizontalHeaderLabels(l);
-    ui->tableProgrammers->setColumnWidth( 0, 60 );   // programmerID
+    ui->tableProgrammers->setColumnWidth( 0, 60 );  // programmerID
     ui->tableProgrammers->setColumnWidth( 1, 200);  // Name
     ui->tableProgrammers->setColumnWidth( 2, 100);  // Gender
-    ui->tableProgrammers->setColumnWidth( 3, 60 );   // BirthYear
-    ui->tableProgrammers->setColumnWidth( 4, 60 );   // DeadYear
+    ui->tableProgrammers->setColumnWidth( 3, 60 );  // BirthYear
+    ui->tableProgrammers->setColumnWidth( 4, 60 );  // DeadYear
     displayProgrammers("");
 
     QStringList f;
@@ -48,11 +45,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableComputers->setColumnCount(5);
     f << "ID" << "Name" << "Type" << "Built" << "Year";
     ui->tableComputers->setHorizontalHeaderLabels(f);
-    ui->tableComputers->setColumnWidth( 0, 60 );   // programmerID
+    ui->tableComputers->setColumnWidth( 0, 60 );  // programmerID
     ui->tableComputers->setColumnWidth( 1, 200);  // Name
     ui->tableComputers->setColumnWidth( 2, 100);  // Gender
-    ui->tableComputers->setColumnWidth( 3, 60 );   // BirthYear
-    ui->tableComputers->setColumnWidth( 4, 60 );   // DeadYear
+    ui->tableComputers->setColumnWidth( 3, 60 );  // BirthYear
+    ui->tableComputers->setColumnWidth( 4, 60 );  // DeadYear
     displayComputers("");
 
 
@@ -60,21 +57,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableConnections->setColumnCount(4);
     g << "ID" << "ProgrammerName" << "ID" << "ComputerName" << "year";
     ui->tableConnections->setHorizontalHeaderLabels(g);
-    ui->tableConnections->setColumnWidth( 0, 60 );   // programmerID
+    ui->tableConnections->setColumnWidth( 0, 60 );  // programmerID
     ui->tableConnections->setColumnWidth( 1, 200);  // programmer Name
     ui->tableConnections->setColumnWidth( 2, 60 );  // computerID
-    ui->tableConnections->setColumnWidth( 3, 200);   // computer Name
+    ui->tableConnections->setColumnWidth( 3, 200);  // computer Name
     displayConnections("");
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
     delete ui;
 }
 
 
-void MainWindow::displayProgrammers(string search)
-{
+void MainWindow::displayProgrammers(string search){
+
     ui->tableProgrammers->setRowCount(0);
     vector<Programmer> programmers = pcservice.findProgrammers(search);
     for (unsigned int i = 0; i<programmers.size();  i++) {
@@ -87,8 +83,8 @@ void MainWindow::displayProgrammers(string search)
     }
 }
 
-void MainWindow::displayComputers(string search)
-{
+void MainWindow::displayComputers(string search){
+
     ui->tableComputers->setRowCount(0);
     vector<Computer> computers = pcservice.findComputers(search);
     for (unsigned int i = 0; i < computers.size();  i++) {
@@ -102,12 +98,11 @@ void MainWindow::displayComputers(string search)
     }
 }
 
-void MainWindow::displayConnections(string search)
-{
-    ui->tableConnections->setRowCount(0);
+void MainWindow::displayConnections(string search){
 
+    ui->tableConnections->setRowCount(0);
     vector<Programmer> programmers = pcservice.findProgrammers(search);
-    vector<Computer> computers; // ath...
+    vector<Computer> computers;
     for (unsigned int i = 0; i<programmers.size();  i++) {
         computers = pcservice.getComputers(programmers[i].programmerID);
 
@@ -125,37 +120,37 @@ void MainWindow::displayConnections(string search)
 
 
 
-void MainWindow::on_buttonProgrammerDel_clicked()
-{
+void MainWindow::on_buttonProgrammerDel_clicked(){
+
     int r = ui->tableProgrammers->currentRow();
     pcservice.deleteProgrammer(ui->tableProgrammers->item(r, 0)->text().toInt());  //gefið er programmer ID
     ui->tableProgrammers->removeRow(r);
 }
 
-void MainWindow::on_buttonComputersDel_clicked()
-{
+void MainWindow::on_buttonComputersDel_clicked(){
+
     int s = ui->tableComputers->currentRow();
     pcservice.deleteComputer(ui->tableComputers->item(s, 0)->text().toInt());  //gefið er computer ID
     ui->tableComputers->removeRow(s);
 }
 
-void MainWindow::on_eFind_textChanged(const QString &arg1)
-{
+void MainWindow::on_eFind_textChanged(const QString &arg1){
+
     displayProgrammers(ui->eFind->text().toStdString());
     displayComputers(ui->eFind->text().toStdString());
     displayConnections(ui->eFind->text().toStdString());
 
 }
 
-void MainWindow::on_buttonConnectionsDel_clicked()
-{
+void MainWindow::on_buttonConnectionsDel_clicked(){
+
     int t = ui->tableConnections->currentRow();
-    pcservice.disconnect(ui->tableConnections->item(t, 0)->text().toInt(), ui->tableConnections->item(t, 2)->text().toInt());  //gefið er computer ID
+    pcservice.disconnect(ui->tableConnections->item(t, 0)->text().toInt(), ui->tableConnections->item(t, 2)->text().toInt());
     ui->tableConnections->removeRow(t);
 }
 
-void MainWindow::on_buttonProgrammerAdd_clicked()
-{
+void MainWindow::on_buttonProgrammerAdd_clicked(){
+
     int res;
     programmerForm pf(this);
     pf.setWindowTitle(QString::fromStdString("Add Programmer"));
@@ -163,6 +158,7 @@ void MainWindow::on_buttonProgrammerAdd_clicked()
     if (res == QDialog::Rejected){
         return;
     }
+
     Programmer p;
     p.Name = pf.getName();
     p.Gender = stringToGender(pf.getGender());
@@ -172,13 +168,13 @@ void MainWindow::on_buttonProgrammerAdd_clicked()
     displayProgrammers(ui->eFind->text().toStdString());
 }
 
-void MainWindow::on_buttonProgrammerEdit_clicked()
-{
+void MainWindow::on_buttonProgrammerEdit_clicked(){
 
     int r = ui->tableProgrammers->currentRow();
     if(r<0){
         return;  // if no programmer is selected
     }
+
     programmerForm pf(this);
     pf.setName(ui->tableProgrammers->item(r, 1)->text().toStdString());
     pf.setGender(ui->tableProgrammers->item(r, 2)->text().toStdString());
@@ -204,16 +200,15 @@ void MainWindow::on_buttonProgrammerEdit_clicked()
     displayProgrammers(ui->eFind->text().toStdString());
 }
 
-void MainWindow::on_connectionAdd_clicked()
-{
+void MainWindow::on_connectionAdd_clicked(){
+
      if(ui->connProgrammer->value()>0 && ui->connComputer->value()>0){
         pcservice.connectProgrammerToComputer(ui->connComputer->value(), ui->connProgrammer->value());
         displayConnections(ui->eFind->text().toStdString());
     }
 }
 
-void MainWindow::on_buttonComputersAdd_clicked()
-{
+void MainWindow::on_buttonComputersAdd_clicked(){
 
     int res;
     computerForm cf(this);
@@ -222,18 +217,21 @@ void MainWindow::on_buttonComputersAdd_clicked()
     if (res == QDialog::Rejected){
         return;
     }
+
     Computer c;
     c.Name = cf.getName();
     c.Type = cf.getType();
     c.WasItBuilt = yesNoToInt(cf.getWasItBuilt());
     c.YearBuilt = cf.getYearBuilt();
+
     pcservice.addComputer(c);
+
     displayComputers(ui->eFind->text().toStdString());
 }
 
 
-void MainWindow::on_buttonComputersEdit_clicked()
-{
+void MainWindow::on_buttonComputersEdit_clicked(){
+
     int r = ui->tableComputers->currentRow();
     if(r<0){
         return;  // if no programmer is selected

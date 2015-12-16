@@ -14,8 +14,7 @@ computerForm::computerForm(QWidget *parent) :
     ui->cWasItBuilt->addItem(QString::fromStdString("Yes"));
 }
 
-computerForm::~computerForm()
-{
+computerForm::~computerForm(){
     delete ui;
 }
 
@@ -55,7 +54,6 @@ int computerForm::getYearBuilt(){
     return ui->cYearBuilt->value();
 }
 
-void computerForm::on_cWasItBuilt_currentIndexChanged(int index)
-{
-        ui->cYearBuilt->setEnabled(index == 1);
+void computerForm::on_cWasItBuilt_currentIndexChanged(int index){
+    ui->cYearBuilt->setEnabled(index == 1);
 }

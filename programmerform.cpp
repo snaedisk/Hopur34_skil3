@@ -14,8 +14,8 @@ programmerForm::programmerForm(QWidget *parent) :
     ui->errorLabel->setVisible(false);
 }
 
-programmerForm::~programmerForm()
-{
+programmerForm::~programmerForm(){
+
     delete ui;
 }
 
@@ -28,6 +28,7 @@ string programmerForm::getName(){
 }
 
 void programmerForm::setGender(string Gender){
+
     if(stringToLower(Gender.substr(0, 1))== "f"){
         ui->pGender->setCurrentIndex(1);
     }else{
@@ -56,25 +57,21 @@ int programmerForm::getDearYear(){
 }
 
 
-void programmerForm::on_buttonCancel_clicked()
-{
+void programmerForm::on_buttonCancel_clicked(){
     QDialog::reject();
 }
 
-void programmerForm::on_buttonOK_clicked()
-{
-    if (ui->pBirthYear->value() < ui->pDeadYear->value() || ui->pDeadYear->value() == 0)
+void programmerForm::on_buttonOK_clicked(){
+
+    if (ui->pBirthYear->value() < ui->pDeadYear->value() || ui->pDeadYear->value() == 0){
         QDialog::accept();
-
+    }
 }
 
-void programmerForm::on_pDeadYear_valueChanged(int arg1)
-{
+void programmerForm::on_pDeadYear_valueChanged(int arg1){
     ui->errorLabel->setVisible(ui->pBirthYear->value() >= ui->pDeadYear->value() && ui->pDeadYear->value() > 0);
 }
 
-void programmerForm::on_pBirthYear_valueChanged(int arg1)
-{
+void programmerForm::on_pBirthYear_valueChanged(int arg1){
     ui->errorLabel->setVisible(ui->pBirthYear->value() >= ui->pDeadYear->value() && ui->pDeadYear->value() > 0);
-
 }
